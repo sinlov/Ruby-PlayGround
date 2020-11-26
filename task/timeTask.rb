@@ -1,8 +1,8 @@
 =begin
   file timeTask.rb
   create "sinlov" on 16/11/25.
-  this program under the term of Ruby's License  
-  (http://www.ruby-lang.org/LINCENSE.txt) 
+  this program under the term of Ruby's License
+  (http://www.ruby-lang.org/LINCENSE.txt)
 =end
 
 

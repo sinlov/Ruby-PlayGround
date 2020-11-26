@@ -49,6 +49,11 @@ bower.json
 node_modules/
 
 ### Ruby template
+
+# coverage by https://github.com/simplecov-ruby/simplecov
+coverage/
+
+Gemfile.lock
 *.gem
 *.rbc
 /.config
