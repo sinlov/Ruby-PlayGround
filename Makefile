@@ -3,16 +3,16 @@
 # each tag change this
 ENV_DIST_VERSION := 1.0.0
 
-# change base namespace
-ENV_PROJECT_NAME=node-cli-temple
+# change project name
+ENV_PROJECT_NAME=ruby-playground
 
 ENV_ROOT ?= $(shell pwd)
-ENV_MODULE_FOLDER ?= ${ENV_ROOT}
-ENV_MODULE_MAKE_FILE ?= ${ENV_MODULE_FOLDER}/Makefile
-ENV_MODULE_MANIFEST = ${ENV_MODULE_FOLDER}/package.json
-ENV_MODULE_CHANGELOG = ${ENV_MODULE_FOLDER}/CHANGELOG.md
+ENV_ROOT_MAKE_FILE ?= ${ENV_ROOT}/Makefile
+ENV_ROOT_MANIFEST = ${ENV_ROOT}/package.json
+ENV_CHANGELOG = ${ENV_ROOT}/CHANGELOG.md
 ENV_COVERAGE_OUT_FOLDER = ${ENV_ROOT}/coverage/
 ENV_GEM_LOCK_FILE = ${ENV_ROOT}/Gemfile.lock
+ENV_MODULE_FOLDER ?= ${ENV_ROOT}/lib
 
 utils:
 	npm install -g commitizen cz-conventional-changelog conventional-changelog-cli
@@ -27,15 +27,15 @@ versionHelp:
 	@echo " module folder path   : ${ENV_MODULE_FOLDER}"
 	@echo ""
 	@echo "=> please check to change version, now is [ ${ENV_DIST_VERSION} ]"
-	@echo "-> check at: ${ENV_MODULE_MAKE_FILE}:4"
-	@echo " $(shell head -n 4 ${ENV_MODULE_MAKE_FILE} | tail -n 1)"
-	@echo "-> check at: ${ENV_MODULE_MANIFEST}:3"
-	@echo " $(shell head -n 3 ${ENV_MODULE_MANIFEST} | tail -n 1)"
+	@echo "-> check at: ${ENV_ROOT_MAKE_FILE}:4"
+	@echo " $(shell head -n 4 ${ENV_ROOT_MAKE_FILE} | tail -n 1)"
+	@echo "-> check at: ${ENV_ROOT_MANIFEST}:3"
+	@echo " $(shell head -n 3 ${ENV_ROOT_MANIFEST} | tail -n 1)"
 
 tagBefore: versionHelp
-	@cd ${ENV_MODULE_FOLDER} && conventional-changelog -i ${ENV_MODULE_CHANGELOG} -s --skip-unstable
+	@cd ${ENV_MODULE_FOLDER} && conventional-changelog -i ${ENV_CHANGELOG} -s --skip-unstable
 	@echo ""
-	@echo "=> new CHANGELOG.md at: ${ENV_MODULE_CHANGELOG}"
+	@echo "=> new CHANGELOG.md at: ${ENV_CHANGELOG}"
 	@echo "place check all file, then can add tag like this!"
 	@echo "$$ git tag -a '${ENV_DIST_VERSION}' -m 'message for this tag'"
 
@@ -63,20 +63,23 @@ install:
 installAll: utils installGlobal install
 	@echo "=> install all finish"
 
+rakeTasks:
+	bundler exec rake -T
+
 test:
-	bundler exec rake testAll
+	bundler exec rake test:testAll
 
 testCoverage:
-	bundler exec rake testAll -- --coverage
+	bundler exec rake -f RakeCoverageUnityTest.rb
 
-testCICoverage:
-	bundler exec rake testAll
+cleanTestCoverage:
+	bundler exec rake -f RakeCoverageUnityTest.rb cleanOut
 
 testAll:
-	bundler exec rake testAll
+	bundler exec rake test:testAll
 
 help:
-	@echo "node module makefile template"
+	@echo "ruby module makefile template"
 	@echo ""
 	@echo " tips: can install node and install utils as"
 	@echo "$$ make utils               ~> install utils"
@@ -93,10 +96,9 @@ help:
 	@echo "Warning: must install node and install module as"
 	@echo "$$ make installGlobal       ~> install must tools at global"
 	@echo "$$ make install             ~> install project"
-	@echo "$$ make installAll          ~> install all include global utils and node_module"
-	@echo "$$ make lint                ~> run eslint"
+	@echo "$$ make installAll          ~> install all include global utils"
+	@echo "$$ make rakeTasks           ~> see all rake task"
 	@echo " unit test as"
 	@echo "$$ make test                ~> only run unit test as change"
 	@echo "$$ make testAll             ~> run full unit test"
 	@echo "$$ make testCoverage        ~> run full unit test and show coverage"
-	@echo "$$ make testCICoverage      ~> run full unit test CI coverage"
