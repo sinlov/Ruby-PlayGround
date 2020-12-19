@@ -9,7 +9,7 @@ require 'rake/testtask'
 namespace :test do
   Rake::TestTask.new(:testAll) do |t|
     # puts "=> task #{t.name} start"
-    ENV['RUBY_SIMPLE_COV'] = 'off'
+    # ENV['RUBY_SIMPLE_COV'] = 'off'
     t.libs << 'test' << 'lib'
     t.warning = true
     t.pattern = "test/**/test_*.rb"

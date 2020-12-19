@@ -67,16 +67,18 @@ rakeTasks:
 	bundler exec rake -T
 
 test:
-	bundler exec rake test:testAll
+	#bundler exec rake test:testAll
+	export RUBY_SIMPLE_COV=off && bundler exec rake test:testAll
 
 testCoverage:
-	bundler exec rake -f RakeCoverageUnityTest.rb
+	#bundler exec rake -f RakeCoverageUnityTest.rb
+	export RUBY_SIMPLE_COV=on && bundler exec rake test:testAll
 
 cleanTestCoverage:
 	bundler exec rake -f RakeCoverageUnityTest.rb cleanOut
 
-testAll:
-	bundler exec rake test:testAll
+testAll: test
+	@echo "now test all"
 
 help:
 	@echo "ruby module makefile template"
