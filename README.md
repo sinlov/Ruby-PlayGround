@@ -1,5 +1,5 @@
 [![ruby-ubuntu](https://github.com/sinlov/Ruby-PlayGround/workflows/ruby-ubuntu/badge.svg?branch=master)](https://github.com/sinlov/Ruby-PlayGround/actions)
-[![ruby-macOS](https://github.com/sinlov/Ruby-PlayGround/workflows/ruby-macOS/badge.svg?branch=master)](https://github.com/sinlov/Ruby-PlayGround/actions)
+[![ruby-macos](https://github.com/sinlov/Ruby-PlayGround/workflows/ruby-macOS/badge.svg?branch=master)](https://github.com/sinlov/Ruby-PlayGround/actions)
 
 # this is my Ruby PlayGround
 
