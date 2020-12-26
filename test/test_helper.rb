@@ -4,8 +4,8 @@ require 'simplecov'
 # puts "ENV['RUBY_SIMPLE_COV']: #{ENV['RUBY_SIMPLE_COV']}"
 if ENV['RUBY_SIMPLE_COV'] == 'on'
   SimpleCov.start
-  require 'codecov'
-  if ENV['CODECOV_TOKEN'] != ''
+  if ENV['CODECOV_TOKEN'] != nil
+    require 'codecov'
     SimpleCov.formatter = SimpleCov::Formatter::Codecov
   end
 end
