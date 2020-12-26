@@ -22,6 +22,9 @@ group :test do
   end
   # https://github.com/simplecov-ruby/simplecov
   gem 'simplecov', '0.19.1'
+  # https://github.com/codecov/codecov-ruby
+  gem 'codecov', '0.2.15', require: false
   # https://github.com/ManageIQ/optimist
   gem 'optimist', '3.0.1'
+
 end
