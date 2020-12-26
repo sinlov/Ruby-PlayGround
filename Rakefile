@@ -6,6 +6,9 @@ require 'rake/testtask'
 # open trace rules faster than cli --trace
 # Rake.application.options.trace_rules = true
 
+desc "default task please see: rake -P"
+task :default => ["test:testAll"] # change to default
+
 namespace :test do
   Rake::TestTask.new(:testAll) do |t|
     # puts "=> task #{t.name} start"
@@ -23,4 +26,12 @@ namespace :test do
   end
 end
 
-# task :default => :test # change to default
+desc "clean coverage out"
+task :cleanCoverage do
+  if File.directory?("coverage")
+    rm_rf "coverage"
+  end
+end
+
+desc "clean all, more info see: rake -P"
+task :cleanAll => ["cleanCoverage"]
