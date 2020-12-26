@@ -32,4 +32,4 @@ jobs:
     - name: Clean all
       run: bundler exec rake cleanAll
     - name: Run tests coverage
-      run: export RUBY_SIMPLE_COV=on && bundler exec rake test:testAll
+      run: bundler exec rake test:testAll

@@ -10,15 +10,18 @@ require 'simplecov'
 
 # puts "ENV['RUBY_SIMPLE_COV']: #{ENV['RUBY_SIMPLE_COV']}"
 if ENV['RUBY_SIMPLE_COV'] == 'on'
+  puts '=> start SimpleCov'
   SimpleCov.start do
     # coverage (ruby "~> 2.5")
     enable_coverage :branch
     add_filter '/test/**'
   end
   if ENV['CODECOV_TOKEN'] != nil
+    puts '=> send codecov by ENV CODECOV_TOKEN'
     require 'codecov'
     SimpleCov.formatter = SimpleCov::Formatter::Codecov
   end
+  puts '=> end SimpleCov'
 end
 
 $LOAD_PATH << "./lib" # 把lib添加到load path
