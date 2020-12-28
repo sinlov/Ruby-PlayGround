@@ -10,9 +10,11 @@ desc "default task please see: rake -P"
 task :default => ["test:testAll"] # change to default
 
 namespace :test do
+  puts "-> in namespace [ test ]"
+  puts "   env [RUBY_SIMPLE_COV=on] will open simplecov"
+  puts "   and will send to https://codecov.io/, which env [ CODECOV_TOKEN ] not nil"
   Rake::TestTask.new(:testAll) do |t|
     # puts "=> task #{t.name} start"
-    # ENV['RUBY_SIMPLE_COV'] = 'off'
     t.libs << 'test' << 'lib'
     t.warning = true
     t.pattern = "test/**/*_test.rb"
