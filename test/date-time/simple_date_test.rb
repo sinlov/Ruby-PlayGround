@@ -1,5 +1,5 @@
 # require 'minitest/autorun'
-require_relative '../test_helper'
+require_relative '../helper_test'
 
 class SimpleDateTest < MiniTest::Test
   def setup
@@ -21,5 +21,8 @@ class SimpleDateTest < MiniTest::Test
     now_date_time = @simple_date.now_date_time
     puts "now_date_time=#{now_date_time}"
     refute_nil now_date_time, 'now_date_time is empty'
+    date_now_date_time = @simple_date.now_date_time(format: "%Y-%m-%d")
+    puts "date_now_date_time=#{date_now_date_time}"
+    refute_nil date_now_date_time, 'date_now_date_time is empty'
   end
 end

@@ -15,22 +15,31 @@ namespace :test do
     # ENV['RUBY_SIMPLE_COV'] = 'off'
     t.libs << 'test' << 'lib'
     t.warning = true
-    t.pattern = "test/**/test_*.rb"
+    t.pattern = "test/**/*_test.rb"
+    t.options = '--flog'
   end
 
   Rake::TestTask.new(:RequireUnitTest) do |t|
     # puts "=> task #{t.name} start"
     t.libs << 'test' << 'lib'
-    t.pattern = "test/**/test_*.rb"
-    t.ruby_opts << "-r test_helper" # 添加 ruby 运行参数，require 指定的文件
+    t.pattern = "test/**/*_test.rb"
+    t.options = '--flog'
+    t.ruby_opts << "-r test_helper" # add ruby options，require to unit file to test
   end
 end
 
 desc "clean coverage out"
 task :cleanCoverage do
-  if File.directory?("coverage")
-    rm_rf "coverage"
+  def clean_folder_when_exists(folder: "coverage")
+    if File.directory?(folder)
+      puts "-> start clean folder: #{folder}"
+      rm_rf folder
+    end
   end
+  clean_folder_when_exists
+  clean_folder_when_exists(folder: "foo")
+
+  puts "=> clean coverage finish"
 end
 
 desc "clean all, more info see: rake -P"

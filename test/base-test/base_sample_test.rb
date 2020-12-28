@@ -1,9 +1,10 @@
-require 'minitest/autorun'
+# require 'minitest/autorun'
+require_relative '../helper_test'
 # require "minitest/spec"
 require 'faker'
 
 
-class BaseTest < MiniTest::Test
+class BaseSampleTest < MiniTest::Test
   def setup
     super
     @t_zzz = "zzZ"

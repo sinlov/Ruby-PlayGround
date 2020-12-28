@@ -6,13 +6,17 @@ module SimpleDate
     # base now date return
     # @return [String]
     def now_date
-      return Time.now.to_s
+      Time.now.to_s
     end
 
-    # format as %Y-%m-%d %H:%M:%S
+    # now date time
+    # @param [format] - empty will be format as %Y-%m-%d %H:%M:%S
     # @return [String]
-    def now_date_time
-      return Time.now.strftime("%Y-%m-%d %H:%M:%S")
+    def now_date_time(format: "")
+      if format == ""
+        format = "%Y-%m-%d %H:%M:%S"
+      end
+      Time.now.strftime(format)
     end
   end
 

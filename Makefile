@@ -63,8 +63,11 @@ install:
 installAll: utils installGlobal install
 	@echo "=> install all finish"
 
-rakeTasks:
+tasks:
 	bundler exec rake -T
+
+taskClean:
+	bundler exec rake cleanAll
 
 test:
 	#bundler exec rake test:testAll
@@ -78,7 +81,7 @@ cleanTestCoverage:
 	bundler exec rake -f RakeCoverageUnityTest.rb cleanOut
 
 testAll: test
-	@echo "now test all"
+	@echo "=> finish test all"
 
 help:
 	@echo "ruby module makefile template"
@@ -99,7 +102,8 @@ help:
 	@echo "$$ make installGlobal       ~> install must tools at global"
 	@echo "$$ make install             ~> install project"
 	@echo "$$ make installAll          ~> install all include global utils"
-	@echo "$$ make rakeTasks           ~> see all rake task"
+	@echo "$$ make tasks               ~> see all rake task"
+	@echo "$$ make taskClean           ~> do rake cleanAll"
 	@echo " unit test as"
 	@echo "$$ make test                ~> only run unit test as change"
 	@echo "$$ make testAll             ~> run full unit test"
