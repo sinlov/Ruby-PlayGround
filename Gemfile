@@ -6,6 +6,7 @@ group :gem_build_deps do
 end
 
 group :development do
+
   # https://github.com/faker-ruby/faker
   gem 'faker', '2.15.1', require: false
 
@@ -18,13 +19,13 @@ group :test do
   gem 'minitest', '5.14.2'
   group :minitest_plugins do
     # https://github.com/chriskottom/minitest-flog
-    gem 'minitest-flog', '0.1.0'
+    gem 'minitest-flog', '0.1.0', require: false
   end
   # https://github.com/simplecov-ruby/simplecov
-  gem 'simplecov', '0.19.1'
+  gem 'simplecov', '0.19.1', require: false
   # https://github.com/codecov/codecov-ruby
   gem 'codecov', '0.2.15', require: false
   # https://github.com/ManageIQ/optimist
-  gem 'optimist', '3.0.1'
+  gem 'optimist', '3.0.1', require: false
 
 end
