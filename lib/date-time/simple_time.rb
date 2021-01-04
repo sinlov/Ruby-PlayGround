@@ -3,7 +3,12 @@ module SimpleTime
 
   class << self
 
-    def unix_timestamp
+    # @return [Time]
+    def new(*several_variants)
+      Time.new(*several_variants)
+    end
+
+    def unix_timestamps
       Time.now.to_i
     end
 

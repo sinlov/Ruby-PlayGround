@@ -3,10 +3,15 @@ module SimpleDate
 
   class << self
 
+    # @return [Date]
+    def new(*arg)
+      Date.new(*arg)
+    end
+
     # base now date return
     # @return [String]
     def now_date_s
-      DateTime.now.to_s
+      Date.today.to_s
     end
 
     # now date time
@@ -16,8 +21,18 @@ module SimpleDate
       if format == ""
         format = "%Y-%m-%d %H:%M:%S"
       end
-      DateTime.now.strftime(format)
+      Date.today.strftime(format)
     end
+
+    # @param [string] date_str
+    # @return [Date] date
+    def parse(date_str)
+      if date_str == ""
+        raise ArgumentError, "date_str is empty"
+      end
+      return Date.parse(date_str)
+    end
+
   end
 
 end

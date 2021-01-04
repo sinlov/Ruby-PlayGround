@@ -46,3 +46,4 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__) # load path of local 
 require_relative '../test/test-base/test_base'
 require_relative '../lib/date-time/simple_date'
 require_relative '../lib/date-time/simple_time'
+require_relative '../lib/date-time/simple_date_time'
