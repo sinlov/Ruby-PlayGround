@@ -36,8 +36,8 @@ class SimpleDateTimeTest < TestBase::Mini
     date_time_strptime = @simple_date_time.strptime(@date_time_str, format: @time_format_base)
     refute_nil date_time_strptime, "@simple_date_time.strptime #{@date_time_str} out nil"
     date_time_str = date_time_strptime.to_s
-    log_f self.class, self.__method__, "time_str #{@time_str} , date_time_str #{date_time_str}"
-    assert_equal '2021-01-01T00:00:00+00:00', date_time_str, "date_time_str by @time_str #{@time_str}"
+    log_f self.class, self.__method__, "time_str #{@date_time_str} , date_time_str #{date_time_str}"
+    assert_equal '2021-01-01T00:00:00+00:00', date_time_str, "date_time_str by @time_str #{@date_time_str}"
   end
 
   def test_04_parse

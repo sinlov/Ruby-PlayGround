@@ -9,6 +9,7 @@ class BaseSampleTest < MiniTest::Test
     super
     @t_zzz = "zzZ"
     @t_name = Faker::Name.name
+    @t_arr = ['', 'a', 'abc']
   end
 
   def test_sleep
@@ -18,5 +19,8 @@ class BaseSampleTest < MiniTest::Test
     refute_nil @t_name ,'faker name is empty'
     # assert_not_nil is just an alias for refute_nil, but it's Rails-only, not part of standard Minitest.
     assert @t_name != nil, 'faker name is empty'
+    assert_equal true , @t_arr.any?('') , "arr #{@t_arr} not hash check at ''"
+    assert_equal true , @t_arr.any?('a') , "arr #{@t_arr} not hash check at 'a'"
+    assert_equal false , @t_arr.any?('ac') , "arr #{@t_arr} not hash check at 'ac'"
   end
 end

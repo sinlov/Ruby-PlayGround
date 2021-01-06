@@ -6,6 +6,7 @@ class SimpleTimeTest < TestBase::Mini
     super
     @simple_time = SimpleTime
     @time_format_base = "%Y-%m-%d"
+    @time_format_full = "%Y-%m-%d %H:%M:%S"
   end
 
   def teardown
@@ -34,8 +35,13 @@ class SimpleTimeTest < TestBase::Mini
     time_format_s = @simple_time.time_format_s
     log_f self.class, self.__method__, "time_format_s #{time_format_s}"
     refute_nil time_format_s, 'time_format_s is empty'
-    simple_time_time_format_date = @simple_time.time_format_s(format: "%Y-%m-%d")
+
+    simple_time_time_format_date = @simple_time.time_format_s(format: @time_format_base)
     log_f self.class, self.__method__, "simple_time_time_format_date #{simple_time_time_format_date}"
     refute_nil simple_time_time_format_date, 'simple_time_time_format_date is empty'
+
+    simple_time_format_full = @simple_time.time_format_s(format: @time_format_full)
+    log_f self.class, self.__method__, "simple_time_format_full #{simple_time_format_full}"
+    refute_nil simple_time_format_full, 'simple_time_format_full is empty'
   end
 end
