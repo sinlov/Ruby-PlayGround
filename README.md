@@ -33,8 +33,8 @@
 | item      | version | desc                                                                               |
 |-----------|---------|------------------------------------------------------------------------------------|
 | minitest  | 5.18.0  | [![](https://img.shields.io/gem/v/minitest)](https://rubygems.org/gems/minitest)   |
-| simplecov | 0.21.1  | [![](https://img.shields.io/gem/v/simplecov)](https://rubygems.org/gems/simplecov) |
-| codecov   | 0.6.0   | [![](https://img.shields.io/gem/v/codecov)](https://rubygems.org/gems/codecov)     |
+| simplecov | 0.19.1  | [![](https://img.shields.io/gem/v/simplecov)](https://rubygems.org/gems/simplecov) |
+| codecov   | 0.4.3   | [![](https://img.shields.io/gem/v/codecov)](https://rubygems.org/gems/codecov)     |
 | optimist  | 3.0.1   | [![](https://img.shields.io/gem/v/optimist)](https://rubygems.org/gems/optimist)   |
 
 # dev

@@ -22,9 +22,9 @@ group :test do
     gem 'minitest-flog', '0.1.0', require: false
   end
   # https://github.com/simplecov-ruby/simplecov
-  gem 'simplecov', '0.21.1', require: false
+  gem 'simplecov', '0.19.1', require: false
   # https://github.com/codecov/codecov-ruby
-  gem 'codecov', '0.6.0', require: false
+  gem 'codecov', '0.4.3', require: false
   # https://github.com/ManageIQ/optimist
   gem 'optimist', '3.0.1', require: false
 
