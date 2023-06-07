@@ -29,7 +29,7 @@ jobs:
         ruby-version: 3.2.2
     # https://github.com/marketplace/actions/set-env
     - name: set environment variables
-      uses: allenevans/set-env@v2.0.0
+      uses: allenevans/set-env@v2.2.0
       with:
         RUBY_SIMPLE_COV: '${{ secrets.RUBY_SIMPLE_COV }}'
         CODECOV_TOKEN: '${{ secrets.CODECOV_TOKEN }}'
