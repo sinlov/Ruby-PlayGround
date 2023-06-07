@@ -43,9 +43,9 @@ tasks:
 taskClean:
 	bundler exec rake cleanAll
 
+test: export RUBY_SIMPLE_COV=off
 test:
-	#bundler exec rake test:testAll
-	export RUBY_SIMPLE_COV=off && bundler exec rake test:testAll
+	bundler exec rake test:testAll
 
 testCoverage: export RUBY_SIMPLE_COV=on
 testCoverage:
