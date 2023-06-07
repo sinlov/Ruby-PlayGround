@@ -47,9 +47,10 @@ test:
 	#bundler exec rake test:testAll
 	export RUBY_SIMPLE_COV=off && bundler exec rake test:testAll
 
+testCoverage: export RUBY_SIMPLE_COV=on
 testCoverage:
 	$(info bundler exec rake -f RakeCoverageUnityTest.rb)
-	export RUBY_SIMPLE_COV=on && bundler exec rake test:testAll
+	bundler exec rake test:testAll
 
 cleanTestCoverage:
 	bundler exec rake -f RakeCoverageUnityTest.rb cleanOut
