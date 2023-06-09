@@ -18,14 +18,14 @@ env:
 	bundle config list
 
 cleanCoverageOut:
-	-@RM -r ${ENV_COVERAGE_OUT_FOLDER}
+	-@$(RM) -r ${ENV_COVERAGE_OUT_FOLDER}
 	$(info has clean ${ENV_COVERAGE_OUT_FOLDER})
 
 cleanGemCache:
-	-@RM -r ${ENV_GEM_LOCK_FILE}
+	-@$(RM) -r ${ENV_GEM_LOCK_FILE}
 	$(info has clean ${ENV_GEM_LOCK_FILE})
 
-cleanAll: cleanGemCache
+cleanAll: cleanGemCache cleanCoverageOut
 	@echo "=> clean all finish"
 
 installGlobal:
